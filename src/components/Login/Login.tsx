@@ -80,7 +80,7 @@ const Login = () => {
                                 
                             </InputAdornment>
                             ),
-                            endAdornment:  (
+                            endAdornment: password && (
                                 <InputAdornment position="end">
                                     {
                                         showPassword?
