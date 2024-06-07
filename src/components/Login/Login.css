@@ -8,6 +8,10 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+.title{
+    text-align: center;
+    font-size: 3rem!important;
+}
 .loginbox{
     width:25rem;
 }
