@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
-import { Box, Button, Checkbox, FormControlLabel, Grid, InputAdornment, Stack, TextField, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
+
+import { Box,
+         Button, 
+         Checkbox, 
+         FormControlLabel, 
+         InputAdornment, 
+         Stack, 
+         TextField, 
+         Typography 
+        } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -35,6 +44,7 @@ const Login = () => {
     const[userName, setUsername] = useState("");
     const[password, setPassword] = useState("");
     const[showPassword, setShowPassword] = useState<boolean>(false);
+    const navigate = useNavigate();
 
     const handleUsernameChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setUsername(event.target.value);
@@ -48,6 +58,10 @@ const Login = () => {
         {
             setShowPassword(!showPassword);
         }
+    const homepageHandler = () =>
+        {
+            navigate("/Homepage");
+        }
 
     const isLoginDisabled = !(userName === 'meghana' && password === '123');
 
@@ -55,7 +69,7 @@ const Login = () => {
     <div className = "loginpage">
             <Box className = "loginbox">
                 <Stack spacing={3}>
-                    <h2>Login</h2>
+                    <Typography className="title">Shop.In</Typography>
                     <TextField  placeholder="User Name" variant="filled" sx = {textFieldStyle} 
                         onChange={handleUsernameChange}
                         value={userName}
@@ -106,7 +120,7 @@ const Login = () => {
                             />
                         <Typography className='forget'>Forget?</Typography>
                     </Stack>
-                    <Button sx={buttonStyle} disabled={isLoginDisabled}>Login</Button>
+                    <Button sx={buttonStyle} disabled={isLoginDisabled} onClick = {()=>homepageHandler()}>Login</Button>
             </Box>
     </div>
   )

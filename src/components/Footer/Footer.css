@@ -1,0 +1,11 @@
+.footer{
+    padding:1rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+    
+.footergrid{
+    background: linear-gradient(135deg, #f18dbf, hsl(327, 69%, 91%));
+
+
+}
