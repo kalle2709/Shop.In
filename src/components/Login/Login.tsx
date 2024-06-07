@@ -23,6 +23,7 @@ const textFieldStyle = {
 
 const checkBoxStyle = {
     color: 'none',
+    fontFamily:'cursive',
           '&.Mui-checked': {
             color: '#f384bb',
         },
@@ -35,8 +36,9 @@ const buttonStyle={
     marginTop:'1.5rem',
     color:'black',
     '&: hover':{
-        background:'white',
-    }
+        background:'#f384bb',
+    },
+    fontFamily:'cursive'
 }
 
 const Login = () => {
@@ -69,7 +71,7 @@ const Login = () => {
     <div className = "loginpage">
             <Box className = "loginbox">
                 <Stack spacing={3}>
-                    <Typography className="title">Shop.In</Typography>
+                    <Typography className="title" sx={{fontFamily:'cursive'}}>Shop.In</Typography>
                     <TextField  placeholder="User Name" variant="filled" sx = {textFieldStyle} 
                         onChange={handleUsernameChange}
                         value={userName}
@@ -118,7 +120,7 @@ const Login = () => {
                             label="Remember Me"
                             
                             />
-                        <Typography className='forget'>Forget?</Typography>
+                        <Typography className='forget' sx={{fontFamily:'cursive'}}>Forget?</Typography>
                     </Stack>
                     <Button sx={buttonStyle} disabled={isLoginDisabled} onClick = {()=>homepageHandler()}>Login</Button>
             </Box>
