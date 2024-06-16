@@ -16,12 +16,12 @@ const Header = () => {
   const [selectedButton, setSelectedButton] = useState<String>('home');
   const navigate = useNavigate();
 
-  const getButtonStyle = (buttonValue:String) => ({
+  const getButtonStyle = (buttonValue: string) => ({
     textTransform: 'none',
     color: 'black',
-    fontFamily:'cursive',
+    fontFamily: 'cursive',
     backgroundColor: selectedButton === buttonValue ? '#f384bb' : 'inherit',
-    '&: hover': {
+    '&:hover': {
       textDecoration: 'underline',
       backgroundColor: selectedButton === buttonValue ? '#f384bb' : 'inherit',
     },
@@ -38,8 +38,9 @@ const Header = () => {
     }
   };
 
-  const logouthandler = ()=>
+  const logouthandler = (value:String)=>
     {
+        setSelectedButton(value);
         navigate('/');
     }
 
@@ -51,7 +52,7 @@ const Header = () => {
           <Typography sx={{ fontFamily: 'cursive', color: '#f384bb', fontSize: '1.5rem' }}>SHOP.IN</Typography>
           <Stack direction='row' spacing={3}>
             <Avatar sx={avatarStyle} >M</Avatar>
-            <Button sx={getButtonStyle('home')} onClick={logouthandler}>Logout</Button>
+            <Button sx={getButtonStyle('logout')} onClick={()=>{logouthandler('logout')}}>Logout</Button>
           </Stack>
           
         </Stack>
