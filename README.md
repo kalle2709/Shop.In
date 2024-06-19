@@ -15,5 +15,47 @@
 5. Commit using git commit -m "message".
 6. push the changes "git push -u origin master".
 
+**Shopping Website with Folder STructure**
+Layout for a shopping website with the following pages
+1. Within src whe have a Components folder created
+2. Within components folder we have all our pages
+3. Login Page
+4. Home Page
+5. Shpping Page
+6. Bag or cart page
+7. About us page
+8. Contact page
+9. Header
+10. Footer
+
+**Hooks**
+A Hook is a special function that lets you **“hook into”** React features.They enable us to **reuse** stateful logic across components without changing the component hierarchy.
+1. **UseState**: This is a hook that allows us to add state to a functional component.It lets us add local state to React function components.
+   We **declare** a **state variable** and pass a **parameter** which is the **initial state**.
+   It **returns** a pair of values: the **current state** and a **function that updates it.**
+   React will **remember** its **current value between re-renders**, and provide the **most recent one to our function**.
+   If we want to **update** the **current** state, we can call **setState**.
+   **const[state, setState] = useState(initial state)**
+   When we want to **display** the current state/value, we use **{current state/value}**
+   The representation of useState is **array destructuring** -- allows you to unpack values from arrays or properties from objects into distinct variables
+   Example:
+   const numbers = [1, 2, 3, 4, 5];
+   const [first, second] = numbers;
+
+  console.log(first);  // Output: 1
+  console.log(second); // Output: 2
+  
+   **We can also skip values:**
+   const numbers = [1, 2, 3, 4, 5];
+   const [first, , third] = numbers;
+
+   console.log(first);  // Output: 1
+   console.log(third);  // Output: 3
+   
+
+   
+
+   
+
 
 
