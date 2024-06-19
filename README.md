@@ -32,7 +32,7 @@ Layout for a shopping website with the following pages
 A Hook is a special function that lets you **“hook into”** React features.They enable us to **reuse** stateful logic across components without changing the component hierarchy.
 1.  **UseState**: 
    This is a hook that allows us to add state to a functional component.It lets us add local state to React function components.
-  1. We **declare** a **state variable** and pass a **parameter** which is the **initial state**.
+     1. We **declare** a **state variable** and pass a **parameter** which is the **initial state**.
   2. It **returns** a pair of values: the **current state** and a **function that updates it.**
   3. React will **remember** its **current value between re-renders**, and provide the **most recent one to our function**.
   4. If we want to **update** the **current** state, we can call **setState**.
