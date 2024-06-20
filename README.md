@@ -55,7 +55,7 @@ A Hook is a special function that lets you **“hook into”** React features.Th
          console.log(third);  // Output: 3
         
 2. **UseEffect**:
-   The Effect Hook lets you perform side effects in function components:-->Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. Side Effects brake the purity of teh pure functions(The same output should be generated fo the same set of input by the component).
+   The Effect Hook lets you perform side effects in function components:-->Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. Side Effects brake the purity of the pure functions(The same output should be generated fo the same set of input by the component).
    There are two common kinds of side effects in React components: those that don’t require cleanup, and those that do. Let’s look at this distinction in more detail.
    By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates.
    **By default, useEffect runs both after the first render and after every update.**
