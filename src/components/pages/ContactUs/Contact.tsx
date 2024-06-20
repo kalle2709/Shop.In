@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Grid, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, Grid, Modal, Stack, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
@@ -47,10 +47,36 @@ const ButtonStyle={
     }
 }
 
+const ModalStyle = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border:'none',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+
 const Contact = () => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
-    const [purpose, setPurpose] = useState('');
+    const [remarks, setRemarks] = useState('');
+    const[opeModal, setOpenModal] = useState<boolean>(false);
+    const[submitDisabled, setSubmitDisabled] = useState(true);
+
+    const handleClose = ()=>
+        {
+            setOpenModal(false);
+        }
+    const modelHandler = () =>
+        {
+            setOpenModal(true);
+        }
+
     
   return (
     <Grid container direction='column'>
@@ -64,24 +90,33 @@ const Contact = () => {
                             variant="standard"
                             label='Full Name'
                             value={fullName}
-                            onChange={(e) => setFullName(e.target.value)}
+                            onChange={(e) =>{ 
+                                 setFullName(e.target.value)
+                                 setSubmitDisabled(false)
+                                }}
                             sx={TextFieldStyle}
                         />
                         <TextField
                             variant="standard"
                             label='Email'
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                                setEmail(e.target.value) 
+                                setSubmitDisabled(false)
+                            }}
                             sx={TextFieldStyle}
                         />
                         <TextField
                             variant="standard"
-                            label='Purpose'
-                            value={purpose}
-                            onChange={(e) => setPurpose(e.target.value)}
+                            label='Remarks'
+                            value={remarks}
+                            onChange={(e) => {
+                                setRemarks(e.target.value)
+                                setSubmitDisabled(false)
+                            }}
                             sx={TextFieldStyle}
                         />
-                    <Button sx={ButtonStyle}>Submit</Button>
+                    <Button sx={ButtonStyle} disabled={submitDisabled} onClick = {()=> modelHandler()}>Submit</Button>
 
                 </Stack>
                 <Stack direction='column' spacing={2} justifyContent='center'>
@@ -103,6 +138,16 @@ const Contact = () => {
         <Grid item>
             <Footer/>
         </Grid>
+        <Modal
+            open={opeModal}
+            onClose={handleClose}
+        >
+            <Box sx={{ ...ModalStyle, width: 400 }}>
+                <Typography variant='h6' sx={{color:'black',fontFamily:'cursive'}}>Request received! We will respond to you as soon as possible.</Typography>
+
+                
+            </Box>
+        </Modal>
         
     </Grid>
   )
