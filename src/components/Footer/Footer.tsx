@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Grid, Stack, TextField, Typography } from '@mui/material'
-import { Facebook, Twitter, Instagram, WidthFull } from '@mui/icons-material';
+import { Facebook, Twitter, Instagram } from '@mui/icons-material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import './Footer.css';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +37,10 @@ const Footer = () => {
         {
             window.open(url,'_blankl');
         }
+    const linkedInLinkHandler = (url:any)=>
+        {
+            window.open(url,'_blankl');
+        }
 
     const handleButtonClick = (value:String) => {
         switch (value){
@@ -53,6 +58,7 @@ const Footer = () => {
                 <Facebook sx={{color:'black',cursor:'pointer'}} onClick={()=>{facebookLinkHandler('https://www.facebook.com/')}}/>
                 <Instagram sx={{color:'black',cursor:'pointer'}} onClick={()=>{instaLinkHandler('https://www.instagram.com/')}}/>
                 <Twitter sx={{color:'black',cursor:'pointer'}} onClick={()=>{twitterLinkHandler('https://x.com/i/flow/login')}}/>
+                <LinkedInIcon sx={{color:'black',cursor:'pointer'}} onClick={()=>{linkedInLinkHandler('https://www.linkedin.com/login')}}/>
             </Stack>
         </Stack>
         <Stack direction='row' justifyContent='space-between' className="footer">

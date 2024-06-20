@@ -6,6 +6,7 @@ import './App.css';
 import Login from './components/Login/Login';
 import HomePage from './components/pages/HomePage/HomePage';
 import AboutPage from './components/pages/AboutPage/About';
+import Contact from './components/pages/ContactUs/Contact';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <Route path="Shopnowpage" element={<HomePage />} />
       <Route path="Aboutpage" element={<AboutPage />} />
       <Route path="Bagpage" element={<HomePage />} />
-      <Route path="Contactpage" element={<HomePage />} />
+      <Route path="Contactpage" element={<Contact />} />
       </Routes>
     </Router>
   );
