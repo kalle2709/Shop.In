@@ -62,7 +62,7 @@ A Hook is a special function that lets you **“hook into”** React features.Th
    1. It contains side effect code and optional parameters called as dependencies.
    2. On every change of dependiencies, the compount will be re rendered.
    3. If empty dependencies are there, then on initial render the effect funtion will be exicuted.
-   4. Few cases requires cleanup like setting time intervells and etc.
+   4. Few cases requires cleanup like setting time intervels and etc.
    
 
    
