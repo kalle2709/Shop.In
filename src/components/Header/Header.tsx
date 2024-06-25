@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Avatar, Button, Grid, Stack, Typography } from '@mui/material';
 
 import './Header.css';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setSelectedButton } from '../Store/websiteSlice';
 
 
 const avatarStyle = {
@@ -13,34 +16,52 @@ const avatarStyle = {
 };
 
 const Header = () => {
-  const [selectedButton, setSelectedButton] = useState<String>('home');
+
+  const buttonSelected = useSelector((state:any) => state.website.buttonSelected);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const getButtonStyle = (buttonValue: string) => ({
     textTransform: 'none',
     color: 'black',
     fontFamily: 'cursive',
-    backgroundColor: selectedButton === buttonValue ? '#f384bb' : 'inherit',
+    backgroundColor: buttonSelected === buttonValue ? '#f384bb' : 'inherit',
     '&:hover': {
       textDecoration: 'underline',
-      backgroundColor: selectedButton === buttonValue ? '#f384bb' : 'inherit',
+      backgroundColor: buttonSelected === buttonValue ? '#f384bb' : 'inherit',
     },
   });
 
-  const handleButtonClick = (value:String) => {
-    setSelectedButton(value);
-    switch (value){
-        case 'home': navigate('/Homepage');break;
-        case 'shopnow': navigate('/Shopnowpage');break;
-        case 'about': navigate('/Aboutpage');break;
-        case 'bag': navigate('/Bagpage');break;
-        case 'contact': navigate('/Contactpage');break;
-    }
-  };
-
-  const logouthandler = (value:String)=>
+  const handleHomeButton = (value:string) =>
     {
-        setSelectedButton(value);
+      dispatch(setSelectedButton(value));
+      navigate('/Homepage');
+    }
+  const handleShopnowButton = (value:string) =>
+    {
+      dispatch(setSelectedButton(value));
+      navigate('/Shopnowpage');
+    }
+  const handleBagButton = (value:string) =>
+    {
+      dispatch(setSelectedButton(value));
+      navigate('/Bagpage');
+    }
+  const handleAboutButton = (value:string) =>
+    {
+      dispatch(setSelectedButton(value));
+      navigate('/Aboutpage');
+    }
+  const handleContactButton = (value:string) =>
+    {
+      dispatch(setSelectedButton(value));
+      navigate('/Contactpage');
+    }
+
+  const logouthandler = (value:string)=>
+    {
+        dispatch(setSelectedButton(value));
         navigate('/');
     }
 
@@ -59,11 +80,11 @@ const Header = () => {
       </Grid>
       <Grid item>
         <Stack direction="row" justifyContent="center" spacing={5}>
-          <Button sx={getButtonStyle('home')} onClick={() => handleButtonClick('home')}>Home</Button>
-          <Button sx={getButtonStyle('shopnow')} onClick={() => handleButtonClick('shopnow')}>Shop Now</Button>
-          <Button sx={getButtonStyle('bag')} onClick={() => handleButtonClick('bag')}>Bag(0)</Button>
-          <Button sx={getButtonStyle('about')} onClick={() => handleButtonClick('about')}>About Us</Button>
-          <Button sx={getButtonStyle('contact')} onClick={() => handleButtonClick('contact')}>Contact Us</Button>
+          <Button sx={getButtonStyle('home')} onClick={() => handleHomeButton('home')}>Home</Button>
+          <Button sx={getButtonStyle('shopnow')} onClick={() => handleShopnowButton('shopnow')}>Shop Now</Button>
+          <Button sx={getButtonStyle('bag')} onClick={() => handleBagButton('bag')}>Bag(0)</Button>
+          <Button sx={getButtonStyle('about')} onClick={() => handleAboutButton('about')}>About Us</Button>
+          <Button sx={getButtonStyle('contact')} onClick={() => handleContactButton('contact')}>Contact Us</Button>
         </Stack>
       </Grid>
     </Grid>
