@@ -35,7 +35,7 @@ const checkBoxStyle = {
 }
 
 const buttonStyle={
-    background:'white',
+    background:'#f384bb',
     width:'inherit',
     textTransform:'none',
     marginTop:'1.5rem',

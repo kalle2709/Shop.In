@@ -5,6 +5,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import './Footer.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setSelectedButton } from '../Store/websiteSlice';
 
 
 const textFieldStyle={
@@ -24,6 +26,7 @@ const buttonStyle={
 const Footer = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const facebookLinkHandler = (url:any)=>
         {
@@ -42,14 +45,28 @@ const Footer = () => {
             window.open(url,'_blankl');
         }
 
-    const handleButtonClick = (value:String) => {
-        switch (value){
-            case 'home': navigate('/Homepage');break;
-            case 'shopnow': navigate('/Shopnowpage');break;
-            case 'about': navigate('/Aboutpage');break;
-            case 'contact': navigate('/Contactpage');break;
+     const handleHomeButton = (value:string) =>
+        {
+          dispatch(setSelectedButton(value));
+          navigate('/Homepage');
         }
-     };
+      const handleShopnowButton = (value:string) =>
+        {
+          dispatch(setSelectedButton(value));
+          navigate('/Shopnowpage');
+        }
+
+      const handleAboutButton = (value:string) =>
+        {
+          dispatch(setSelectedButton(value));
+          navigate('/Aboutpage');
+        }
+      const handleContactButton = (value:string) =>
+        {
+          dispatch(setSelectedButton(value));
+          navigate('/Contactpage');
+        }
+
   return (
     <Grid className="footergrid">
         <Stack direction='row' justifyContent='space-between' className="footer">
@@ -72,21 +89,21 @@ const Footer = () => {
             </Stack>
             <Stack spacing={0.5}>
                 <Typography sx={{paddingBottom:'1.5rem',fontFamily:'cursive',paddingLeft:'1.5rem'}}>QUICK LINKS</Typography>
-                <Button disableRipple onClick = {()=>{handleButtonClick('home')}} sx=
+                <Button disableRipple onClick = {()=>{handleHomeButton('home')}} sx=
                     {{fontFamily:'cursive',
                         color:'black',
                         textTransform:'none', 
                         background:'none',
                         '&: hover':{textDecoration:'underline',cursor:'pointer'}}}
                     >Home</Button>
-                <Button disableRipple onClick = {()=>{handleButtonClick('shopnow')}}
+                <Button disableRipple onClick = {()=>{handleShopnowButton('shopnow')}}
                     sx={{fontFamily:'cursive',
                         color:'black',
                         textTransform:'none', 
                         background:'none',
                         '&: hover':{textDecoration:'underline',cursor:'pointer'}}}>Shop Now</Button>
-                <Button disableRipple onClick = {()=>{handleButtonClick('about')}} sx={{fontFamily:'cursive',color:'black',textTransform:'none', background:'none','&: hover':{textDecoration:'underline',cursor:'pointer'}}}>About Us</Button>
-                <Button disableRipple onClick = {()=>{handleButtonClick('contact')}} sx={{fontFamily:'cursive',color:'black',textTransform:'none', background:'none','&: hover':{textDecoration:'underline',cursor:'pointer'}}}>Contact Us</Button>
+                <Button disableRipple onClick = {()=>{handleAboutButton('about')}} sx={{fontFamily:'cursive',color:'black',textTransform:'none', background:'none','&: hover':{textDecoration:'underline',cursor:'pointer'}}}>About Us</Button>
+                <Button disableRipple onClick = {()=>{handleContactButton('contact')}} sx={{fontFamily:'cursive',color:'black',textTransform:'none', background:'none','&: hover':{textDecoration:'underline',cursor:'pointer'}}}>Contact Us</Button>
             </Stack>
             <Stack spacing={1}>
                 <Typography sx={{paddingBottom:'1.5rem',fontFamily:'cursive'}}>SUBSCRIBE</Typography>
