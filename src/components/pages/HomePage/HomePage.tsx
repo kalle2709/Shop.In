@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Stack, Typography } from '@mui/material';
 
-import img1 from '../../../images/img1.jpg';
-import img2 from '../../../images/img2.jpeg';
+// import img1 from '../../../images/img1.jpg';
+import img1 from '../../../images/home1.webp';
+// import img2 from '../../../images/img2.jpeg';
+import img2 from '../../../images/home2.webp';
 import img3 from '../../../images/img3.jpg';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';

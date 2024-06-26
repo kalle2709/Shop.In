@@ -83,8 +83,8 @@ const Contact = () => {
         <Grid item>
             <Header/>
         </Grid>
-        <Grid sx={{padding:'2rem',background:'black',marginTop:'2rem'}}>
-            <Stack direction='row' justifyContent='center' spacing={15} sx={{padding:'5rem'}}>
+        <Grid sx={{padding:'1rem',background:'black',marginTop:'1rem',height:'100vh',display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <Stack direction='row'  spacing={15} >
                 <Stack direction='column' spacing={5}>
                 <TextField
                             variant="standard"

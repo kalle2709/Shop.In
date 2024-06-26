@@ -37,7 +37,7 @@ const BagPage = () => {
         <Grid item sx = {{marginBottom:'1rem'}}>
             <Header/>
         </Grid>
-        <Grid sx={{padding:'2rem', background:'whitesmoke',height:'25rem', display:'flex', alignItems:'center', justifyContent:'center'}}>
+        <Grid sx={{padding:'2rem', background:'whitesmoke',height:'66vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
             <Stack direction = 'column' alignItems='center' spacing = {5} >
                 <Stack direction='row' spacing={3}>
                     <Typography variant='h4' sx={{fontFamily:'cursive',paddingTop:'0.5rem'}}>Shopping Cart</Typography>
