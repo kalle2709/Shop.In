@@ -17,7 +17,7 @@ import braceletSet1 from '../../../../images/braceletSet1.avif'
 import earrings from '../../../../images/earrings.avif'
 import earrings12 from '../../../../images/earrings12.avif'
 import neckles32 from '../../../../images/neckles32.avif'
-import neckles32h from '../../../../images/neckles32.avif'
+import neckles32h from '../../../../images/neckles32h.avif'
 
 
 const shopButtonStyle = 
@@ -210,7 +210,7 @@ const AllPage = () => {
                 style={{ opacity: mouseHovered21 ? 0.4 : 1 }}
               />
               <Stack direction = 'column' spacing={0}>
-                  <Button disableRipple sx={shopButtonStyle}>Katy Couple Rings</Button>
+                  <Button disableRipple sx={shopButtonStyle}>Katy Necklace</Button>
                   <Button disableRipple sx={shopButtonStyle}>$220.40</Button>
               </Stack>                  
         </Stack>
@@ -308,7 +308,7 @@ const AllPage = () => {
                 style={{ opacity: mouseHovered32 ? 0.4 : 1 }}
               />
               <Stack direction = 'column' spacing={0}>
-                  <Button disableRipple sx={shopButtonStyle}>Sam Neckles</Button>
+                  <Button disableRipple sx={shopButtonStyle}>Sam Necklace</Button>
                   <Button disableRipple sx={shopButtonStyle}>$150.00</Button>
               </Stack>                  
         </Stack>
