@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setSelectedButton } from '../../Store/websiteSlice'
 
 const buttonStyle={

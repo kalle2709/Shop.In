@@ -2,16 +2,15 @@ import React, { useState } from 'react'
 import { Box, Button, Stack } from '@mui/material'
 
 
-import rings11 from '../../../../images/rings11.avif'
-import rings11h from '../../../../images/rings11h.webp'
-import rings12 from '../../../../images/rings12.avif'
-import rings12h from '../../../../images/rings12h.webp'
-import ringsAll from '../../../../images/ringsAll.avif'
-import rings21 from '../../../../images/rings21.avif'
-import rings21h from '../../../../images/rings21h.avif'
-import rings1 from '../../../../images/rings1.avif'
-import ring31 from '../../../../images/ring31.avif'
-import ring31h from '../../../../images/ring31h.webp'
+import earringsAll from '../../../../images/earringAll.jpg'
+import earrings1 from '../../../../images/earrings1.avif'
+import earrings from '../../../../images/earrings.avif'
+import earrings12 from '../../../../images/earrings12.avif'
+import earrings13 from '../../../../images/earrings13.avif'
+import earrings21 from '../../../../images/earrings21.avif'
+import earrings21h from '../../../../images/earrings21h.avif'
+import earrings22 from '../../../../images/earrings22.avif'
+import earrings22h from '../../../../images/earrings22h.avif'
 
 
 const shopButtonStyle = 
@@ -30,18 +29,15 @@ const shopButtonStyle =
 
     }
 
-const RingsPage = () => {
+const EarringsPage = () => {
 
-  const[mouseHovered11, setMouseHovered11] = useState<boolean>(false);
   const[mouseHovered12, setMouseHovered12] = useState<boolean>(false);
   const[mouseHovered13, setMouseHovered13] = useState<boolean>(false);
   const[mouseHovered21, setMouseHovered21] = useState<boolean>(false);
   const[mouseHovered22, setMouseHovered22] = useState<boolean>(false);
+  const[mouseHovered23, setMouseHovered23] = useState<boolean>(false);
+  
 
-  const handleMouseEnter11 = () =>
-    {
-        setMouseHovered11(true);
-    }
   const handleMouseEnter12 = () =>
     {
         setMouseHovered12(true);
@@ -54,16 +50,15 @@ const RingsPage = () => {
     {
         setMouseHovered21(true);
     }
- 
   const handleMouseEnter22 = () =>
     {
         setMouseHovered22(true);
     }
-  
-   const handleMouseLeave11 = () =>
+  const handleMouseEnter23 = () =>
     {
-        setMouseHovered11(false);
+        setMouseHovered23(true);
     }
+
    const handleMouseLeave12 = () =>
     {
         setMouseHovered12(false);
@@ -76,40 +71,43 @@ const RingsPage = () => {
     {
         setMouseHovered21(false);
     }
-
    const handleMouseLeave22 = () =>
     {
         setMouseHovered22(false);
     }
- 
+   const handleMouseLeave23 = () =>
+    {
+        setMouseHovered23(false);
+    }
+  
 
 
   return (
     <Stack direction = 'column' sx={{padding:'0.5rem'}} spacing={10} alignItems='center'>
       <Stack direction = 'row'   spacing={10}>
         <Stack direction = 'column' spacing={2} sx={{
-          cursor:'pointer',        
-          }} 
-          onClick = {()=>{}}
-        >
-          <Box
-            component="img"
-            onMouseEnter = {handleMouseEnter11}
-            onMouseLeave = {handleMouseLeave11}
-            sx={{
-                height: 350,
-                width: 350,
-                transition:'opacity 0.5s ease-in-out'
+                cursor:'pointer',        
+                }} 
+                onClick = {()=>{}}
+                >
+                <Box
+                    component="img"
+                    onMouseEnter = {handleMouseEnter23}
+                    onMouseLeave = {handleMouseLeave23}
+                    sx={{
+                        height: 350,
+                        width: 350,
+                        transition:'opacity 0.5s ease-in-out'
 
-            }}
-            alt="The house from the offer."
-            src={mouseHovered11 ? rings11h : rings11}
-            style={{ opacity: mouseHovered11 ? 0.4 : 1 }}
-            />
-            <Stack direction = 'column' spacing={0}>
-                <Button disableRipple sx={shopButtonStyle}>Jude Couple Rings</Button>
-                <Button disableRipple sx={shopButtonStyle}>$140.40</Button>
-            </Stack>                   
+                    }}
+                    alt="The house from the offer."
+                    src={mouseHovered23 ? earrings12 : earrings}
+                    style={{ opacity: mouseHovered23 ? 0.4 : 1 }}
+                />
+                <Stack direction = 'column' spacing={0}>
+                    <Button disableRipple sx={shopButtonStyle}>Dev Earrings</Button>
+                    <Button disableRipple sx={shopButtonStyle}>$50.00</Button>
+                </Stack>                  
         </Stack>
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
@@ -127,11 +125,11 @@ const RingsPage = () => {
 
               }}
               alt="The house from the offer."
-              src={mouseHovered12 ? rings12h : rings12}
+              src={mouseHovered12 ? earrings1 : earringsAll}
               style={{ opacity: mouseHovered12 ? 0.4 : 1 }}
             />
             <Stack direction = 'column' spacing={0}>
-                <Button disableRipple sx={shopButtonStyle}>Ben Ring</Button>
+                <Button disableRipple sx={shopButtonStyle}>Gasparid Earrings</Button>
                 <Button disableRipple sx={shopButtonStyle}>$120.40</Button>
             </Stack>                  
         </Stack>
@@ -151,11 +149,11 @@ const RingsPage = () => {
 
                 }}
                 alt="The house from the offer."
-                src={mouseHovered13 ? rings1 : ringsAll}
+                src={mouseHovered13 ? earrings13 : earrings13}
                 style={{ opacity: mouseHovered13 ? 0.4 : 1 }}
               />
               <Stack direction = 'column' spacing={0}>
-                  <Button disableRipple sx={shopButtonStyle}>Katy Couple Rings</Button>
+                  <Button disableRipple sx={shopButtonStyle}>Katy Earrings</Button>
                   <Button disableRipple sx={shopButtonStyle}>$220.40</Button>
               </Stack>                  
         </Stack>
@@ -177,37 +175,37 @@ const RingsPage = () => {
 
                 }}
                 alt="The house from the offer."
-                src={mouseHovered21 ? rings21h : rings21}
+                src={mouseHovered21 ? earrings21h : earrings21}
                 style={{ opacity: mouseHovered21 ? 0.4 : 1 }}
               />
               <Stack direction = 'column' spacing={0}>
-                  <Button disableRipple sx={shopButtonStyle}>Katy Ring</Button>
-                  <Button disableRipple sx={shopButtonStyle}>$320.40</Button>
+                  <Button disableRipple sx={shopButtonStyle}>Ben Earrings</Button>
+                  <Button disableRipple sx={shopButtonStyle}>$220.40</Button>
               </Stack>                  
         </Stack>
         <Stack direction = 'column' spacing={2} sx={{
-              cursor:'pointer',        
-              }} 
-              onClick = {()=>{}}
-              >
-                <Box
-                  component="img"
-                  onMouseEnter = {handleMouseEnter22}
-                  onMouseLeave = {handleMouseLeave22}
-                  sx={{
-                      height: 350,
-                      width: 350,
-                      transition:'opacity 0.5s ease-in-out'
+            cursor:'pointer',        
+            }} 
+            onClick = {()=>{}}
+            >
+              <Box
+                component="img"
+                onMouseEnter = {handleMouseEnter22}
+                onMouseLeave = {handleMouseLeave22}
+                sx={{
+                    height: 350,
+                    width: 350,
+                    transition:'opacity 0.5s ease-in-out'
 
-                  }}
-                  alt="The house from the offer."
-                  src={mouseHovered22 ? ring31h : ring31}
-                  style={{ opacity: mouseHovered22 ? 0.4 : 1 }}
-                />
-                <Stack direction = 'column' spacing={0}>
-                    <Button disableRipple sx={shopButtonStyle}>Hardy Ring</Button>
-                    <Button disableRipple sx={shopButtonStyle}>$200.70</Button>
-                </Stack>                  
+                }}
+                alt="The house from the offer."
+                src={mouseHovered22 ? earrings22h : earrings22}
+                style={{ opacity: mouseHovered22 ? 0.4 : 1 }}
+              />
+              <Stack direction = 'column' spacing={0}>
+                  <Button disableRipple sx={shopButtonStyle}>Jared Blue Heart Earrings</Button>
+                  <Button disableRipple sx={shopButtonStyle}>$280.00</Button>
+              </Stack>                  
         </Stack>
       </Stack>
     </Stack>
@@ -215,4 +213,4 @@ const RingsPage = () => {
   )
 }
 
-export default RingsPage
+export default EarringsPage;

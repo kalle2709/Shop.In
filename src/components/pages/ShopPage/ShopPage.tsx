@@ -1,10 +1,13 @@
-import { Button, Grid, Stack } from '@mui/material'
 import React, { useState } from 'react'
+
+import { Button, Grid, Stack } from '@mui/material'
 import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
 import AllPage from './AllPage/AllPage'
 import RingsPage from './RingsPage/RingsPage'
 import BraceletPage from './BraceletPage/BraceletPage'
+import NecklesPage from './NecklesPage/NecklesPage'
+import EarringsPage from './EarRingsPage/EarringsPage'
 
 
 
@@ -72,7 +75,7 @@ const ShopPage = () => {
                     <Button sx={buttonStyle('rings')} onClick = {()=>{handleRingsClick('rings')}}>Rings</Button>
                     <Button sx={buttonStyle('bracelets')} onClick = {()=>{handleBraceletsClick('bracelets')}}>Bracelets</Button>
                     <Button sx={buttonStyle('necklaces')} onClick = {()=>{handleNecklacesClick('necklaces')}}>Necklaces</Button>
-                    <Button sx={buttonStyle('earrings')} onClick = {()=>{handleEarringClick('necklaces')}}>Earrings</Button>
+                    <Button sx={buttonStyle('earrings')} onClick = {()=>{handleEarringClick('earrings')}}>Earrings</Button>
                 </Stack>
                 {
                     selectedValue === 'all' && <AllPage/>
@@ -82,6 +85,12 @@ const ShopPage = () => {
                 }
                 {
                     selectedValue === 'bracelets' && <BraceletPage/>
+                }
+                {
+                    selectedValue === 'necklaces' && <NecklesPage/>
+                }
+                {
+                    selectedValue === 'earrings' && <EarringsPage/>
                 }
                 
                 

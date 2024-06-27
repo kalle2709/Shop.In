@@ -20,7 +20,7 @@ const HomePage = () => {
     const animationStyle = {
         width: '100%',
         height: '85vh',
-        opacity:0.7,
+        opacity:0.8,
         backgroundImage: `url(${images[currentImageIndex]})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -30,7 +30,7 @@ const HomePage = () => {
         alignItems: 'center',
         color: 'white',
         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-        transition: 'background-image 1s ease-in',
+        transition: 'background-image 1s ease-in-out',
         marginTop:'1rem'
     }
 
@@ -40,7 +40,7 @@ const HomePage = () => {
     }, 10000); 
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <Grid container direction="column">
@@ -50,7 +50,7 @@ const HomePage = () => {
       <Grid item sx={animationStyle} className = 'imagepart'>
         <Stack>
             <Typography variant="h3" sx={{color: 'white',fontFamily:'cursive'}}>" Treat yo' self "</Typography>
-            <Typography variant="h3" sx={{color: 'white', textAlign:'center',fontFamily:'cursive'}}>Buy it</Typography>
+            {/* <Typography variant="h3" sx={{color: 'white', textAlign:'center',fontFamily:'cursive'}}>Buy it</Typography> */}
         </Stack>
         
       </Grid>
