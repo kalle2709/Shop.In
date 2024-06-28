@@ -75,7 +75,7 @@ const AboutPage = () => {
                     <Typography variant='h6'sx={{fontFamily:'cursive',textAlign:"center"}}>Let's get started </Typography>
                 </Stack>
                 <Box>
-                   <img src={aboutus}/>
+                   <img src={aboutus} alt='About'/>
                 </Box>        
             </Stack>
         </Grid>

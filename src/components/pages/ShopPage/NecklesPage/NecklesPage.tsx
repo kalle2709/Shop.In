@@ -10,6 +10,8 @@ import neckles13h from '../../../../images/neckles13h.avif'
 import neckles21 from '../../../../images/neckles21.avif'
 import neckles21h from '../../../../images/neckles21h.avif'
 import neckles22 from '../../../../images/neckles22.avif'
+import { useDispatch } from 'react-redux'
+import { setItemDetails, setPageItemSelected } from '../../../Store/websiteSlice'
 
 
 const shopButtonStyle = 
@@ -34,6 +36,8 @@ const NecklesPage = () => {
   const[mouseHovered21, setMouseHovered21] = useState<boolean>(false);
   const[mouseHovered22, setMouseHovered22] = useState<boolean>(false);
   const[mouseHovered32, setMouseHovered32] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   
   const handleMouseEnter13 = () =>
@@ -70,6 +74,38 @@ const NecklesPage = () => {
     {
         setMouseHovered32(false);
     }
+    
+    const handleNecklacePage11 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleNecklacePage12 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleNecklacePage13 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleNecklacePage21 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleNecklacePage22 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+  
 
 
   return (
@@ -78,7 +114,8 @@ const NecklesPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
                 cursor:'pointer',        
                 }} 
-                onClick = {()=>{}}
+                onClick = {()=>{handleNecklacePage11('item','Sam Necklace','$150.00',neckles32,neckles32h)}}
+
                 >
                 <Box
                     component="img"
@@ -102,7 +139,8 @@ const NecklesPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleNecklacePage12('item','Katy Necklace','$220.40',necklesAll,neckles1)}}
+
             >
               <Box
                 component="img"
@@ -126,7 +164,7 @@ const NecklesPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleNecklacePage13('item','Jade Fllower Necklace','$220.40',neckles13,neckles13h)}}
             >
               <Box
                 component="img"
@@ -152,7 +190,7 @@ const NecklesPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleNecklacePage21('item','Gen Stone Necklace','$220.40',neckles21,neckles21h)}}
             >
               <Box
                 component="img"
@@ -176,7 +214,7 @@ const NecklesPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleNecklacePage22('item','Jared Necklace','$280.00',neckles22,neckles22)}}
             >
               <Box
                 component="img"

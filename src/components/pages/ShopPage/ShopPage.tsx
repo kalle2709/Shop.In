@@ -8,36 +8,51 @@ import RingsPage from './RingsPage/RingsPage'
 import BraceletPage from './BraceletPage/BraceletPage'
 import NecklesPage from './NecklesPage/NecklesPage'
 import EarringsPage from './EarRingsPage/EarringsPage'
+import { useSelector } from 'react-redux'
+import ItemPageSelected from './ItemSelectedPage/ItemPageSelected'
+import { useDispatch } from 'react-redux'
+import { setPageItemSelected } from '../../Store/websiteSlice'
 
 
 
 const ShopPage = () => {
     const[selectedValue, setSelectedValue] = useState<string>('all');
 
+    const pageItemSelected = useSelector((state:any) => state.website.pageItemSelected);
+    const itemSelected = useSelector((state:any) => state.website.itemSelected);
+
+    const dispatch = useDispatch();
+
+
 
     const handleAllClick = (value: string)=>
         {
             setSelectedValue(value);
+            dispatch(setPageItemSelected(''));
 
         }
     const handleRingsClick = (value: string)=>
         {
             setSelectedValue(value);
+            dispatch(setPageItemSelected(''));
 
         }
     const handleBraceletsClick = (value: string)=>
         {
             setSelectedValue(value);
+            dispatch(setPageItemSelected(''));
 
         }
     const handleNecklacesClick = (value: string)=>
         {
             setSelectedValue(value);
+            dispatch(setPageItemSelected(''));
 
         }
     const handleEarringClick = (value: string)=>
         {
             setSelectedValue(value);
+            dispatch(setPageItemSelected(''));
 
         }
 
@@ -56,6 +71,25 @@ const ShopPage = () => {
         
         
         })
+
+        const renderContent = () => {
+            if (pageItemSelected && itemSelected === 'item') {
+                return <ItemPageSelected />;
+            }
+            switch (selectedValue) {
+                case 'rings':
+                    return <RingsPage />;
+                case 'bracelets':
+                    return <BraceletPage />;
+                case 'necklaces':
+                    return <NecklesPage />;
+                case 'earrings':
+                    return <EarringsPage />;
+                case 'all':
+                default:
+                    return <AllPage />;
+            }
+        };
 
   
   return (
@@ -77,21 +111,7 @@ const ShopPage = () => {
                     <Button sx={buttonStyle('necklaces')} onClick = {()=>{handleNecklacesClick('necklaces')}}>Necklaces</Button>
                     <Button sx={buttonStyle('earrings')} onClick = {()=>{handleEarringClick('earrings')}}>Earrings</Button>
                 </Stack>
-                {
-                    selectedValue === 'all' && <AllPage/>
-                }
-                {
-                    selectedValue === 'rings' && <RingsPage/>
-                }
-                {
-                    selectedValue === 'bracelets' && <BraceletPage/>
-                }
-                {
-                    selectedValue === 'necklaces' && <NecklesPage/>
-                }
-                {
-                    selectedValue === 'earrings' && <EarringsPage/>
-                }
+                {renderContent()}
                 
                 
 
