@@ -12,6 +12,8 @@ import bracelet22 from '../../../../images/bracelet22.avif'
 import bracelet22h from '../../../../images/bracelet22h.avif'
 import braceletSet from '../../../../images/braceletSet.avif'
 import braceletSet1 from '../../../../images/braceletSet1.avif'
+import { setItemDetails, setPageItemSelected } from '../../../Store/websiteSlice'
+import { useDispatch } from 'react-redux'
 
 
 const shopButtonStyle = 
@@ -37,6 +39,8 @@ const BraceletPage = () => {
   const[mouseHovered13, setMouseHovered13] = useState<boolean>(false);
   const[mouseHovered21, setMouseHovered21] = useState<boolean>(false);
   const[mouseHovered22, setMouseHovered22] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   const handleMouseEnter11 = () =>
     {
@@ -79,6 +83,37 @@ const BraceletPage = () => {
     {
         setMouseHovered22(false);
     }
+
+    const handleBraceletPage11 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleBraceletPage12 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleBraceletPage13 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleBraceletPage21 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleBraceletPage22 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
    
 
   return (
@@ -87,7 +122,8 @@ const BraceletPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
           }} 
-          onClick = {()=>{}}
+          onClick = {()=>{handleBraceletPage11('item','Ben Bracelet','$140.40',braceletAll,bracelet1)}}
+
         >
           <Box
             component="img"
@@ -111,7 +147,8 @@ const BraceletPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
           }} 
-          onClick = {()=>{}}
+          onClick = {()=>{handleBraceletPage12('item','Jared Bracelet Set','$520.40',braceletSet,braceletSet1)}}
+
           >
             <Box
               component="img"
@@ -135,7 +172,7 @@ const BraceletPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleBraceletPage13('item','Katy Gold Bracelet','$220.40',bracelet13,bracelet13h)}}
             >
               <Box
                 component="img"
@@ -161,7 +198,8 @@ const BraceletPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleBraceletPage21('item','Katy Bracelet','$220.40',bracelet21,bracelet21h)}}
+
             >
               <Box
                 component="img"
@@ -185,7 +223,7 @@ const BraceletPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleBraceletPage22('item','Jared Marbel Bracelet','$280.00',bracelet22h,bracelet22)}}
             >
               <Box
                 component="img"

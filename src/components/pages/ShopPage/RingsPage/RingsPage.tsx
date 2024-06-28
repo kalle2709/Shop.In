@@ -12,6 +12,8 @@ import rings21h from '../../../../images/rings21h.avif'
 import rings1 from '../../../../images/rings1.avif'
 import ring31 from '../../../../images/ring31.avif'
 import ring31h from '../../../../images/ring31h.webp'
+import { useDispatch } from 'react-redux'
+import { setItemDetails, setPageItemSelected } from '../../../Store/websiteSlice'
 
 
 const shopButtonStyle = 
@@ -37,6 +39,8 @@ const RingsPage = () => {
   const[mouseHovered13, setMouseHovered13] = useState<boolean>(false);
   const[mouseHovered21, setMouseHovered21] = useState<boolean>(false);
   const[mouseHovered22, setMouseHovered22] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   const handleMouseEnter11 = () =>
     {
@@ -81,6 +85,37 @@ const RingsPage = () => {
     {
         setMouseHovered22(false);
     }
+
+    const handleRingsPage11 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleRingsPage12 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleRingsPage13 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleRingsPage21 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleRingsPage22 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
  
 
 
@@ -90,7 +125,7 @@ const RingsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
           }} 
-          onClick = {()=>{}}
+          onClick = {()=>{handleRingsPage11('item','Jude Couple Rings','$140.40',rings11,rings11h)}}
         >
           <Box
             component="img"
@@ -114,7 +149,7 @@ const RingsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
           }} 
-          onClick = {()=>{}}
+          onClick = {()=>{handleRingsPage12('item','Ben Ring','$120.40',rings12,rings12h)}}
           >
             <Box
               component="img"
@@ -138,7 +173,7 @@ const RingsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleRingsPage13('item','Katy Couple Rings','$220.40',ringsAll,rings1)}}
             >
               <Box
                 component="img"
@@ -164,7 +199,7 @@ const RingsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleRingsPage21('item','Katy Ring','$320.40',rings21,rings21h)}}
             >
               <Box
                 component="img"
@@ -188,7 +223,7 @@ const RingsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
               cursor:'pointer',        
               }} 
-              onClick = {()=>{}}
+              onClick = {()=>{handleRingsPage22('item','Hardy Ring','$200.70',ring31,ring31h)}}
               >
                 <Box
                   component="img"

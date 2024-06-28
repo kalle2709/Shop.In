@@ -20,7 +20,6 @@ const buttonStyle={
 
 const BagPage = () => {
     
-    // const buttonSelected = useSelector((state:any) => state.website.buttonSelected);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

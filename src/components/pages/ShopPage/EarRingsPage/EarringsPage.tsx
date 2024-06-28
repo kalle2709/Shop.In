@@ -11,6 +11,8 @@ import earrings21 from '../../../../images/earrings21.avif'
 import earrings21h from '../../../../images/earrings21h.avif'
 import earrings22 from '../../../../images/earrings22.avif'
 import earrings22h from '../../../../images/earrings22h.avif'
+import { useDispatch } from 'react-redux'
+import { setItemDetails, setPageItemSelected } from '../../../Store/websiteSlice'
 
 
 const shopButtonStyle = 
@@ -36,6 +38,8 @@ const EarringsPage = () => {
   const[mouseHovered21, setMouseHovered21] = useState<boolean>(false);
   const[mouseHovered22, setMouseHovered22] = useState<boolean>(false);
   const[mouseHovered23, setMouseHovered23] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
   
 
   const handleMouseEnter12 = () =>
@@ -79,6 +83,37 @@ const EarringsPage = () => {
     {
         setMouseHovered23(false);
     }
+
+    const handleEarringsPage11 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleEarringsPage12 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleEarringsPage13 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleEarringsPage21 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
+    const handleEarringsPage22 = (value:string,name:string,cost:string,image1:any,image2:any) =>
+      {
+        dispatch(setPageItemSelected(value));    
+        dispatch(setItemDetails({name,cost,image1,image2}));
+
+      }
   
 
 
@@ -88,7 +123,8 @@ const EarringsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
                 cursor:'pointer',        
                 }} 
-                onClick = {()=>{}}
+                onClick = {()=>{handleEarringsPage11('item','Dev Earrings','$50.00',earrings,earrings12)}}
+
                 >
                 <Box
                     component="img"
@@ -112,7 +148,8 @@ const EarringsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
           cursor:'pointer',        
           }} 
-          onClick = {()=>{}}
+          onClick = {()=>{handleEarringsPage12('item','Gasparid Earrings','$120.40',earringsAll,earrings1)}}
+
           >
             <Box
               component="img"
@@ -136,7 +173,8 @@ const EarringsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleEarringsPage13('item','Katy Earrings','$220.40',earrings13,earrings13)}}
+
             >
               <Box
                 component="img"
@@ -162,7 +200,8 @@ const EarringsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleEarringsPage21('item','Katy Earrings','$220.40',earrings13,earrings13)}}
+
             >
               <Box
                 component="img"
@@ -186,7 +225,8 @@ const EarringsPage = () => {
         <Stack direction = 'column' spacing={2} sx={{
             cursor:'pointer',        
             }} 
-            onClick = {()=>{}}
+            onClick = {()=>{handleEarringsPage22('item','Jared Blue Heart Earrings','$280.00',earrings22,earrings22h)}}
+
             >
               <Box
                 component="img"
