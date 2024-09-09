@@ -4,9 +4,11 @@ import Carousel from 'react-material-ui-carousel';
 import React, { useState } from 'react'
 
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setAddCartBtnClick, setCartItemList, setItemQuantity, setSelectedButton } from '../../../Store/websiteSlice';
 
-const quantityValues = [0,1,2,3,4,5,6,7,8,9,10];
+const quantityValues = [1,2,3,4,5,6,7,8,9,10];
 
 const ItemPageSelected = () => {
 
@@ -14,22 +16,30 @@ const ItemPageSelected = () => {
     const cost = useSelector((state:any) => state.website.itemCost);
     const image1 = useSelector((state:any) => state.website.image1);
     const image2 = useSelector((state:any) => state.website.image2);
-    console.log(name);
-    console.log(cost);
-    console.log(image1);
-    console.log(image2);
+    const buttonClicked = useSelector((state:any) => state.website.addCartBtnClick);
+    const [quantity,setQuantity] = useState<number>(1);
 
-const items = [image1,image2];
-const[quantity,setQuantity] = useState<number>(0);
-const[buttonClicked, setButtonClicked] = useState<boolean>(false);
+    const dispatch = useDispatch();
+   
+    const items = [image1,image2];
+   
 
-const handleChange = (event: SelectChangeEvent<number>) => {
-    setQuantity(event.target.value as number);
-  };
-  const cartPageHandler = ()=>
-    {
-        setButtonClicked(true);
-    }
+    const navigate = useNavigate();
+
+    const handleChange = (event: SelectChangeEvent<number>) => {
+        setQuantity(event.target.value as number)
+        dispatch(setItemQuantity(event.target.value as number));
+    };
+    const cartPageHandler = (name:string,cost:string,image1:any,quantityL:number)=>
+        {
+            dispatch(setAddCartBtnClick(true));
+            dispatch(setCartItemList({name,cost,image1,quantity}))
+            setTimeout(() => {
+                navigate('/Bagpage');
+                dispatch(setSelectedButton('bag'));  
+            }, 1000);        
+              
+        }
 
   return (
     <Stack  direction = 'row' justifyContent='center' sx={{paddingLeft:'5rem',paddingRight:'5rem'}}>
@@ -128,7 +138,7 @@ const handleChange = (event: SelectChangeEvent<number>) => {
                     </Select>
                 </FormControl>
                 <Button 
-                onClick={()=>{cartPageHandler()}}
+                onClick={()=>{cartPageHandler(name,cost,image1,quantity)}}
                 sx={{
                     textTransform:'none',
                     background:'black',

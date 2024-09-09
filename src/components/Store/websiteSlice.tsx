@@ -1,6 +1,26 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+interface CartItem {
+    name: string;
+    cost: string;
+    image1: any;
+    quantity: number;
+}
+
+interface WebsiteState {
+    buttonSelected: string;
+    pageItemSelected: boolean;
+    itemSelected: string;
+    itemName: string;
+    itemCost: string;
+    image1: string;
+    image2: string;
+    addCartBtnClick: boolean;
+    items: CartItem[];
+    itemQuantity:number
+}
+
+const initialState:WebsiteState = {
     buttonSelected:'home',
     pageItemSelected: false,
     itemSelected:'',
@@ -8,6 +28,9 @@ const initialState = {
     itemCost:'',
     image1:'',
     image2:'',
+    addCartBtnClick:false,
+    items:[],
+    itemQuantity:1,
 
 }
 
@@ -30,10 +53,25 @@ const websiteSlice = createSlice({
             state.image2 = image2;
             console.log(state.itemName)
           },
+        setAddCartBtnClick(state,action: PayloadAction<boolean>){
+            state.addCartBtnClick =  action.payload;
+
+        },
+        setCartItemList(state,action: PayloadAction<CartItem>){
+            state.items.push(action.payload);
+        },
+        setItemQuantity(state,action:PayloadAction<number>){
+            state.itemQuantity=action.payload;
+        },
+        setRemoveCartItem(state, action: PayloadAction<number>) {
+            state.items.splice(action.payload, 1);
+        },
     }
 
 })
 
 
-export const{setSelectedButton, setPageItemSelected,setItemDetails} = websiteSlice.actions;
+export const{setSelectedButton, setPageItemSelected,
+    setItemDetails,setAddCartBtnClick,setCartItemList,
+    setItemQuantity,setRemoveCartItem} = websiteSlice.actions;
 export default websiteSlice.reducer

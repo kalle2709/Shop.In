@@ -5,7 +5,7 @@ import { Avatar, Button, Grid, Stack, Typography } from '@mui/material';
 import './Header.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setSelectedButton } from '../Store/websiteSlice';
+import { setPageItemSelected, setSelectedButton } from '../Store/websiteSlice';
 
 
 const avatarStyle = {
@@ -18,6 +18,7 @@ const avatarStyle = {
 const Header = () => {
 
   const buttonSelected = useSelector((state:any) => state.website.buttonSelected);
+  const bagCount = useSelector((state:any) => state.website.items);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -37,32 +38,38 @@ const Header = () => {
     {
       dispatch(setSelectedButton(value));
       navigate('/Homepage');
+      dispatch(setPageItemSelected(''));
     }
   const handleShopnowButton = (value:string) =>
     {
       dispatch(setSelectedButton(value));
       navigate('/Shopnowpage');
+      dispatch(setPageItemSelected(''));
     }
   const handleBagButton = (value:string) =>
     {
       dispatch(setSelectedButton(value));
       navigate('/Bagpage');
+      dispatch(setPageItemSelected(''));
     }
   const handleAboutButton = (value:string) =>
     {
       dispatch(setSelectedButton(value));
       navigate('/Aboutpage');
+      dispatch(setPageItemSelected(''));
     }
   const handleContactButton = (value:string) =>
     {
       dispatch(setSelectedButton(value));
       navigate('/Contactpage');
+      dispatch(setPageItemSelected(''));
     }
 
   const logouthandler = (value:string)=>
     {
         dispatch(setSelectedButton(value));
         navigate('/');
+        dispatch(setPageItemSelected(''));
     }
 
   return (
@@ -82,7 +89,7 @@ const Header = () => {
         <Stack direction="row" justifyContent="center" spacing={5}>
           <Button sx={getButtonStyle('home')} onClick={() => handleHomeButton('home')}>Home</Button>
           <Button sx={getButtonStyle('shopnow')} onClick={() => handleShopnowButton('shopnow')}>Shop Now</Button>
-          <Button sx={getButtonStyle('bag')} onClick={() => handleBagButton('bag')}>Bag(0)</Button>
+          <Button sx={getButtonStyle('bag')} onClick={() => handleBagButton('bag')}>{`Cart(${bagCount.length})`}</Button>
           <Button sx={getButtonStyle('about')} onClick={() => handleAboutButton('about')}>About Us</Button>
           <Button sx={getButtonStyle('contact')} onClick={() => handleContactButton('contact')}>Contact Us</Button>
         </Stack>
