@@ -74,6 +74,9 @@ const Contact = () => {
         }
     const modelHandler = () =>
         {
+            setFullName('')
+            setEmail('')
+            setRemarks('')
             setOpenModal(true);
         }
 
