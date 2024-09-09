@@ -11,16 +11,15 @@ import EarringsPage from './EarRingsPage/EarringsPage'
 import { useSelector } from 'react-redux'
 import ItemPageSelected from './ItemSelectedPage/ItemPageSelected'
 import { useDispatch } from 'react-redux'
-import { setPageItemSelected } from '../../Store/websiteSlice'
-import Try from './try'
+import { setCategorySelected, setPageItemSelected } from '../../Store/websiteSlice'
 
 
 
 const ShopPage = () => {
-    const[selectedValue, setSelectedValue] = useState<string>('all');
 
     const pageItemSelected = useSelector((state:any) => state.website.pageItemSelected);
     const itemSelected = useSelector((state:any) => state.website.itemSelected);
+    const selectedValue = useSelector((state:any) => state.website.categorySelected);
 
     const dispatch = useDispatch();
 
@@ -28,31 +27,31 @@ const ShopPage = () => {
 
     const handleAllClick = (value: string)=>
         {
-            setSelectedValue(value);
+            dispatch(setCategorySelected(value));
             dispatch(setPageItemSelected(''));
 
         }
     const handleRingsClick = (value: string)=>
         {
-            setSelectedValue(value);
+            dispatch(setCategorySelected(value));
             dispatch(setPageItemSelected(''));
 
         }
     const handleBraceletsClick = (value: string)=>
         {
-            setSelectedValue(value);
+            dispatch(setCategorySelected(value));
             dispatch(setPageItemSelected(''));
 
         }
     const handleNecklacesClick = (value: string)=>
         {
-            setSelectedValue(value);
+            dispatch(setCategorySelected(value));
             dispatch(setPageItemSelected(''));
 
         }
     const handleEarringClick = (value: string)=>
         {
-            setSelectedValue(value);
+            dispatch(setCategorySelected(value));
             dispatch(setPageItemSelected(''));
 
         }
@@ -88,8 +87,7 @@ const ShopPage = () => {
                     return <EarringsPage />;
                 case 'all':
                 default:
-                    // return <AllPage />;
-                    return <Try />;
+                    return <AllPage />;
             }
         };
 
