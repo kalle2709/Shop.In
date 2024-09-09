@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux'
 import ItemPageSelected from './ItemSelectedPage/ItemPageSelected'
 import { useDispatch } from 'react-redux'
 import { setPageItemSelected } from '../../Store/websiteSlice'
+import Try from './try'
 
 
 
@@ -87,7 +88,8 @@ const ShopPage = () => {
                     return <EarringsPage />;
                 case 'all':
                 default:
-                    return <AllPage />;
+                    // return <AllPage />;
+                    return <Try />;
             }
         };
 
@@ -111,13 +113,9 @@ const ShopPage = () => {
                     <Button sx={buttonStyle('necklaces')} onClick = {()=>{handleNecklacesClick('necklaces')}}>Necklaces</Button>
                     <Button sx={buttonStyle('earrings')} onClick = {()=>{handleEarringClick('earrings')}}>Earrings</Button>
                 </Stack>
-                {renderContent()}
-                
-                
-
+                {renderContent()}      
             </Stack>
            
-
         </Grid>
         <Grid item>
             <Footer/>
