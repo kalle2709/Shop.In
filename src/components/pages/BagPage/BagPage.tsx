@@ -1,10 +1,10 @@
-import { Box, Button, Checkbox, Divider, FormControl, FormControlLabel, Grid, MenuItem, Modal, Select, SelectChangeEvent, Stack, Typography } from '@mui/material'
+import { Box, Button, Checkbox, FormControl, Grid, MenuItem, Modal, Select, SelectChangeEvent, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setAddCartBtnClick, setItemQuantity, setRemoveCartItem, setSelectedButton } from '../../Store/websiteSlice'
+import { setItemQuantity, setRemoveCartItem, setSelectedButton } from '../../Store/websiteSlice'
 
 const buttonStyle={
     background:'#f384bb',
@@ -40,9 +40,6 @@ const BagPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const buttonClicked = useSelector((state:any) => state.website.addCartBtnClick);  
-    const name:string = useSelector((state:any) => state.website.itemName);
-    const cost = useSelector((state:any) => state.website.itemCost);
-    const image1 = useSelector((state:any) => state.website.image1);
     const items = useSelector((state:any) => state.website.items);
     const quantity = useSelector((state:any) => state.website.itemQuantity);
 
@@ -90,7 +87,7 @@ const BagPage = () => {
                 }
 
             }
-
+ 
         }
         
         const handleOpenModal = () =>
@@ -103,7 +100,7 @@ const BagPage = () => {
         <Grid item sx = {{marginBottom:'1rem'}}>
             <Header/>
         </Grid>
-        {!buttonClicked || items.length ==0 ? 
+        {!buttonClicked || items.length === 0 ? 
         <Grid sx={{background:'whitesmoke',height:'66vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
             <Stack direction = 'column' alignItems='center' spacing = {5} >
                 <Stack direction='row' spacing={3}>

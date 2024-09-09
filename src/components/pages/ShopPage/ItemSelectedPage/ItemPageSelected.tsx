@@ -6,7 +6,9 @@ import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setAddCartBtnClick, setCartItemList, setItemQuantity, setSelectedButton } from '../../../Store/websiteSlice';
+import { setAddCartBtnClick, setCartItemList,
+    //  setItemQuantity,
+      setSelectedButton } from '../../../Store/websiteSlice';
 
 const quantityValues = [1,2,3,4,5,6,7,8,9,10];
 
@@ -28,7 +30,7 @@ const ItemPageSelected = () => {
 
     const handleChange = (event: SelectChangeEvent<number>) => {
         setQuantity(event.target.value as number)
-        dispatch(setItemQuantity(event.target.value as number));
+        // dispatch(setItemQuantity(event.target.value as number));
     };
     const cartPageHandler = (name:string,cost:string,image1:any,quantityL:number)=>
         {
@@ -127,8 +129,7 @@ const ItemPageSelected = () => {
                         }}
                     >
                         {
-                            quantityValues.map((val, i) => 
-                                
+                            quantityValues.map((val, i) =>       
                                 <MenuItem value={val} key={i}>{val}
                                 </MenuItem>
                                 
@@ -138,9 +139,11 @@ const ItemPageSelected = () => {
                     </Select>
                 </FormControl>
                 <Button 
-                onClick={()=>{cartPageHandler(name,cost,image1,quantity)}}
+                onClick={()=>{
+                    cartPageHandler(name,cost,image1,quantity)
+                }}
                 sx={{
-                    textTransform:'none',
+                    textTransform:'none', 
                     background:'black',
                     color:'pink',
                     fontFamily:'cursive',

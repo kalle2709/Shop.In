@@ -22,7 +22,7 @@ interface WebsiteState {
 }
 
 const initialState:WebsiteState = {
-    buttonSelected:'home',
+    buttonSelected: localStorage.getItem('buttonSelected') || 'home',
     pageItemSelected: false,
     itemSelected:'',
     itemName:'',
@@ -32,7 +32,7 @@ const initialState:WebsiteState = {
     addCartBtnClick:false,
     items:[],
     itemQuantity:1,
-    categorySelected:'all'
+    categorySelected:localStorage.getItem('categorySelected') || 'all',
 
 }
 
@@ -41,7 +41,8 @@ const websiteSlice = createSlice({
     initialState,
     reducers:{
         setSelectedButton(state,action: PayloadAction<string>){
-            state.buttonSelected = action.payload
+            state.buttonSelected = action.payload;
+            localStorage.setItem('buttonSelected', action.payload);
         },
         setPageItemSelected(state, action: PayloadAction<string>){
             state.pageItemSelected = true;
@@ -53,14 +54,19 @@ const websiteSlice = createSlice({
             state.itemCost = cost;
             state.image1 = image1;
             state.image2 = image2;
-            console.log(state.itemName)
           },
         setAddCartBtnClick(state,action: PayloadAction<boolean>){
             state.addCartBtnClick =  action.payload;
 
         },
         setCartItemList(state,action: PayloadAction<CartItem>){
-            state.items.push(action.payload);
+            const existingItem = state.items.find(item => item.name === action.payload.name);
+            if (existingItem) {
+                existingItem.quantity += action.payload.quantity;
+                state.itemQuantity = existingItem.quantity;
+            } else {
+                state.items.push(action.payload);
+            }
         },
         setItemQuantity(state,action:PayloadAction<number>){
             state.itemQuantity=action.payload;
@@ -70,6 +76,7 @@ const websiteSlice = createSlice({
         },
         setCategorySelected(state,action: PayloadAction<string>){
             state.categorySelected = action.payload;
+            localStorage.setItem('categorySelected',action.payload)
         }
     }
 
@@ -78,5 +85,6 @@ const websiteSlice = createSlice({
 
 export const{setSelectedButton, setPageItemSelected,
     setItemDetails,setAddCartBtnClick,setCartItemList,
-    setItemQuantity,setRemoveCartItem,setCategorySelected} = websiteSlice.actions;
+    setItemQuantity,
+    setRemoveCartItem,setCategorySelected} = websiteSlice.actions;
 export default websiteSlice.reducer
