@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, Grid, Stack, TextField, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import { Box, Button, Grid, Modal, Stack, TextField, Typography } from '@mui/material'
 import { Facebook, Twitter, Instagram } from '@mui/icons-material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -9,9 +9,21 @@ import { useDispatch } from 'react-redux';
 import { setSelectedButton } from '../Store/websiteSlice';
 
 
-const textFieldStyle={
-    
-}
+
+const ModalStyle = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border:'none',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+
 const buttonStyle={
     fontFamily:'cursive',
     background:'black',
@@ -27,6 +39,8 @@ const Footer = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const[model,setModel] = useState<boolean>(false);
+    const[email,setEmail] = useState<string>('');
 
     const facebookLinkHandler = (url:any)=>
         {
@@ -65,6 +79,23 @@ const Footer = () => {
         {
           dispatch(setSelectedButton(value));
           navigate('/Contactpage');
+        }
+        const subscribehandler = () =>
+        {
+            setModel(true);
+
+        }
+        const handleEmail = (event:any) =>
+        {
+            setEmail(event.target.value);
+
+        }
+        const handleClose = () =>
+        {
+            setModel(false);
+            setEmail('');
+
+
         }
 
   return (
@@ -107,11 +138,25 @@ const Footer = () => {
             </Stack>
             <Stack spacing={1}>
                 <Typography sx={{paddingBottom:'1.5rem',fontFamily:'cursive'}}>SUBSCRIBE</Typography>
-                <TextField placeholder='Email' sx={textFieldStyle}/>
-                <Button sx={buttonStyle}>Subscribe</Button>
+                <TextField placeholder='Email'
+                onChange={handleEmail}
+                value={email}/>
+                <Button sx={buttonStyle} onClick = {() => subscribehandler()}>Subscribe</Button>
             </Stack>
-
         </Stack>
+        {
+            model && 
+            <Modal
+            open={model}
+            onClose={handleClose}
+            >
+            <Box sx={{ ...ModalStyle, width: 400 }}>
+                <Typography variant='h6' sx={{color:'black',fontFamily:'cursive',textAlign:'center'}}>Thank You !</Typography>
+
+                
+            </Box>
+        </Modal>
+        }
         
       
     </Grid>
