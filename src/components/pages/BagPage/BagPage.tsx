@@ -4,7 +4,7 @@ import Header from '../../Header/Header'
 import Footer from '../../Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setItemQuantity, setRemoveCartItem, setSelectedButton } from '../../Store/websiteSlice'
+import { setAddCartBtnClick, setItemQuantity, setRemoveCartItem, setSelectedButton } from '../../Store/websiteSlice'
 
 const buttonStyle={
     background:'#f384bb',
@@ -39,13 +39,15 @@ const BagPage = () => {
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const buttonClicked = useSelector((state:any) => state.website.addCartBtnClick);  
+    // const buttonClicked = useSelector((state:any) => state.website.addCartBtnClick);  
     const items = useSelector((state:any) => state.website.items);
     const quantity = useSelector((state:any) => state.website.itemQuantity);
 
     const [checkedItems, setCheckedItems] = useState<{ [key: number]: boolean }>({});
     const[openModal,setOpenModal] = useState<boolean>(false);
     const[noItemSelected,setNoItemSelected] = useState<boolean>(false);
+
+    dispatch(setAddCartBtnClick(false));
 
 
     const handleChange = (event: SelectChangeEvent<number>) => {
@@ -100,7 +102,7 @@ const BagPage = () => {
         <Grid item sx = {{marginBottom:'1rem'}}>
             <Header/>
         </Grid>
-        {!buttonClicked || items.length === 0 ? 
+        { items.length === 0 ? 
         <Grid sx={{background:'whitesmoke',height:'66vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
             <Stack direction = 'column' alignItems='center' spacing = {5} >
                 <Stack direction='row' spacing={3}>

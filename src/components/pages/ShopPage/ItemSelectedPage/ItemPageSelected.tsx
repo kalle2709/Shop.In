@@ -151,7 +151,7 @@ const ItemPageSelected = () => {
                         background:'black',
                     }
 
-                }}>
+                }}> 
                     {!buttonClicked ?'Add To Cart':'Adding to Cart'}
                     </Button>
             </Stack>
