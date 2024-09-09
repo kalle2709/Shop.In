@@ -17,7 +17,8 @@ interface WebsiteState {
     image2: string;
     addCartBtnClick: boolean;
     items: CartItem[];
-    itemQuantity:number
+    itemQuantity:number;
+    categorySelected:string;
 }
 
 const initialState:WebsiteState = {
@@ -31,6 +32,7 @@ const initialState:WebsiteState = {
     addCartBtnClick:false,
     items:[],
     itemQuantity:1,
+    categorySelected:'all'
 
 }
 
@@ -66,6 +68,9 @@ const websiteSlice = createSlice({
         setRemoveCartItem(state, action: PayloadAction<number>) {
             state.items.splice(action.payload, 1);
         },
+        setCategorySelected(state,action: PayloadAction<string>){
+            state.categorySelected = action.payload;
+        }
     }
 
 })
@@ -73,5 +78,5 @@ const websiteSlice = createSlice({
 
 export const{setSelectedButton, setPageItemSelected,
     setItemDetails,setAddCartBtnClick,setCartItemList,
-    setItemQuantity,setRemoveCartItem} = websiteSlice.actions;
+    setItemQuantity,setRemoveCartItem,setCategorySelected} = websiteSlice.actions;
 export default websiteSlice.reducer
