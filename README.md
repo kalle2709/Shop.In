@@ -4,6 +4,8 @@ This Shop.In e-commerce platform, developed with React, TypeScript, and Material
 
 **Video Walkthrough**
 
+ ![video](https://github.com/user-attachments/assets/walkthrough)
+
 
   
 
