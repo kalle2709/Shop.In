@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Stack, Typography } from '@mui/material';
 
-// import img1 from '../../../images/img1.jpg';
 import img1 from '../../../images/home1.webp';
-// import img2 from '../../../images/img2.jpeg';
 import img2 from '../../../images/home2.webp';
 import img3 from '../../../images/img3.jpg';
 import Header from '../../Header/Header';
@@ -48,10 +46,10 @@ const HomePage = () => {
         <Header />
       </Grid>
       <Grid item sx={animationStyle} className = 'imagepart'>
-        <Stack>
-            <Typography variant="h3" sx={{color: 'white',fontFamily:'cursive'}}>" Treat yo' self "</Typography>
-            {/* <Typography variant="h3" sx={{color: 'white', textAlign:'center',fontFamily:'cursive'}}>Buy it</Typography> */}
-        </Stack>
+        {/* <Stack>
+            <Typography variant="h3" sx={{color: 'black',fontFamily:'cursive'}}>" Treat yo' self "</Typography>
+            <Typography variant="h3" sx={{color: 'white', textAlign:'center',fontFamily:'cursive'}}>Buy it</Typography>
+        </Stack> */}
         
       </Grid>
       <Grid item>
