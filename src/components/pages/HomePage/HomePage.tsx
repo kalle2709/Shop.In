@@ -7,7 +7,6 @@ import img3 from '../../../images/img3.jpg';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 
-import './HomePage.css';
 
 
 
