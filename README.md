@@ -38,7 +38,6 @@ This Shop.In e-commerce platform, developed with React, TypeScript, and Material
   8.  Footer:
       ![image](https://github.com/user-attachments/assets/2f1715ad-c263-4190-98bc-47d42c4344b5)
       Subscrition of Email:
-      ![Uploading image.png…]()
 
       ALL the functionalities for the footer clicks work for navigation to different pages
         
