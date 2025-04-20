@@ -1,7 +1,9 @@
 **Overview:**
 
 This Shop.In e-commerce platform, developed with React, TypeScript, and Material-UI, offers a comprehensive online shopping experience with a polished, user-friendly interface. Users can log in and access a Home Page and Shop Now section, where they can browse a range of jewelry items by category, view detailed descriptions, and add items to their cart with adjustable quantities. The Cart Page provides an overview of selected items, allowing for easy modifications before checkout. Additionally, the About Us page features interactive sections for policies, while the Contact Page includes a form submission option, with a consistent footer for seamless navigation across all pages.
-  
+
+  **Live Demo**
+    https://github.com/kalle2709/Shop.In.git
 
   ** IMAGES:**
   1. Login:
