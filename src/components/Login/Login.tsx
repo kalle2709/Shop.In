@@ -70,7 +70,7 @@ const Login = () => {
             navigate("/Homepage");
         }
 
-    const isLoginDisabled = !(userName === 'meghana' && password === '123');
+    const isLoginDisabled = !userName  && !password;
 
   return (
     <div className = "loginpage">
